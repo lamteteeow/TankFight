@@ -7,11 +7,11 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public float velocity = 0.0f;
+    private float velocity = 0.0f;
     private float turnVelocity;
     private const float innertia = 0.15f;
-    public float horizontalInput;
-    public float forwardInput;
+    private float horizontalInput;
+    private float forwardInput;
 
     public Camera mainCamera;
     public Camera hoodCamera;
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         // Create user input in order to move increase and decrease the acceleration
         if (forwardInput > 0)
         {
-            if (velocity <= 2.5f)
+            if (velocity <= 2.2f) // Set max velocity
             {
                 velocity += 0.006f;
                 // increase field of view as the user press W
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         }
         if (forwardInput < 0)
         {
-            if (velocity >= -2.0f)
+            if (velocity >= -2.0f) // Set max reverse velocity
             {
                 velocity -= 0.01f;
                 // increase field of view as the user press S
@@ -75,11 +75,11 @@ public class PlayerController : MonoBehaviour
         {
             if (velocity > innertia)
             {
-                velocity -= 0.005f;
+                velocity -= 0.01f;
             }
             if (velocity < -innertia)
             {
-                velocity += 0.005f;
+                velocity += 0.01f;
             }
         }
 
