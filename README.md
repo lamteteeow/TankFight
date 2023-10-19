@@ -5,6 +5,8 @@ Another game with plane flying over obstable will be updated soon within this pr
 
 To-do list:
 
+- [ ] Recorrect camera position of player 2 at preview scene
+
 - [x] Adding physic material of metal to tank
 
 - [x] Adding different texture material for tank
