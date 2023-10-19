@@ -11,6 +11,6 @@ To-do list:
 
 - Option to choose Bo3-5-7-9
 
-- Reset round and update points
+- Reset round and update points when bounding box of player get out of ROI
 
 - Instruction for each player on hotkeys before starting game. Click shoot to start game
