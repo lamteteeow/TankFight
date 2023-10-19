@@ -30,14 +30,6 @@ public class Fire : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        //if (inputID == "1") 
-        //{
-        //    fireInput = Input.GetKey(KeyCode.LeftAlt);
-        //} else if (inputID == "2")
-        //{
-        //    fireInput = Input.GetKey(KeyCode.Slash);
-        //}
-
         fireInput = Input.GetAxis("Fire" + inputID);
 
         if (gunHeat > 0)
@@ -56,14 +48,11 @@ public class Fire : MonoBehaviour
     }
     private void Shoot()
     {
-        emitAngle = 1 * Math.PI / 180;
+        emitAngle = 1.5 * Math.PI / 180;
 
         //The Bullet instantiation happens here.
         GameObject Temporary_Bullet_Handler;
         Temporary_Bullet_Handler = Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation) as GameObject;
- 
-        //Temporary_Bullet_Handler.transform.Rotate(Vector3.back * 90);
-        //Temporary_Bullet_Handler.transform.Rotate(Vector3.up * -10);
 
         //Retrieve the Rigidbody component from the instantiated Bullet and control it.
         Rigidbody Temporary_RigidBody;
@@ -74,6 +63,6 @@ public class Fire : MonoBehaviour
         Temporary_RigidBody.AddForce(transform.up * Bullet_Forward_Force * (float)Math.Sin(emitAngle));
 
         // Clean Up after 3 seconds
-        Destroy(Temporary_Bullet_Handler, 3.0f);
+        Destroy(Temporary_Bullet_Handler, 3.5f);
     }
 }

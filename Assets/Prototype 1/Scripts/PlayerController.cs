@@ -9,7 +9,10 @@ public class PlayerController : MonoBehaviour
 {
     private float velocity = 0.0f;
     private float turnVelocity;
-    private const float innertia = 0.15f;
+    private const float innertia = 0.1f;
+    private const float forwardAccelaration = 0.004f;
+    private const float backwardAccelaration = 0.008f;
+
     private float horizontalInput;
     private float forwardInput;
 
@@ -43,9 +46,9 @@ public class PlayerController : MonoBehaviour
         // Create user input in order to move increase and decrease the acceleration
         if (forwardInput > 0)
         {
-            if (velocity <= 2.2f) // Set max velocity
+            if (velocity <= 2.0f) // Set max velocity
             {
-                velocity += 0.006f;
+                velocity += forwardAccelaration;
                 // increase field of view as the user press W
                 mainCamera.fieldOfView += (Math.Abs(velocity) * 0.05f);
             }
@@ -61,7 +64,7 @@ public class PlayerController : MonoBehaviour
         {
             if (velocity >= -2.0f) // Set max reverse velocity
             {
-                velocity -= 0.01f;
+                velocity -= backwardAccelaration;
                 // increase field of view as the user press S
                 mainCamera.fieldOfView += (Math.Abs(velocity) * 0.05f);
             }
