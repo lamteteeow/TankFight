@@ -41,7 +41,7 @@ public class Fire : MonoBehaviour
         {
             if (gunHeat <= 0)
             {
-                gunHeat = 0.5f;
+                gunHeat = 0.8f;
                 Shoot();
             }
         }
@@ -61,8 +61,9 @@ public class Fire : MonoBehaviour
         //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force.
         Temporary_RigidBody.AddForce(transform.forward * Bullet_Forward_Force * (float)Math.Cos(emitAngle));
         Temporary_RigidBody.AddForce(transform.up * Bullet_Forward_Force * (float)Math.Sin(emitAngle));
+        //Temporary_RigidBody.AddForce(transform.forward * Bullet_Forward_Force);
 
         // Clean Up after 3 seconds
-        Destroy(Temporary_Bullet_Handler, 3.5f);
+        Destroy(Temporary_Bullet_Handler, 3.0f);
     }
 }
